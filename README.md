@@ -6,4 +6,5 @@ The following data structures have been implemented
 
 1. Stacks
 2. Queues
-3. Doubly Circular Linked List
+3. Circular Linked List
+4. Doubly Circular Linked List
