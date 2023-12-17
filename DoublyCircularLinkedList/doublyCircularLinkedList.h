@@ -58,12 +58,13 @@ private:
   DoublyCircularLinkedListNode<T>* head;
   DoublyCircularLinkedListNode<T>* tail;
   int count;
+
 public:
   // default constructor
   DoublyCircularLinkedList<T>() {
     this->head = NULL;
     this->tail = NULL;
-    int count = 0;
+    this->count = 0;
   }
   // parameterized constructor
   DoublyCircularLinkedList<T>(DoublyCircularLinkedListNode<T>* head, 
@@ -78,7 +79,7 @@ public:
     this->tail = head;
     this->head->next = this->head;
     this->head->prev = this->head;
-    this->count = 0;
+    this->count = 1;
   }
   // destructor
   ~DoublyCircularLinkedList<T>() {
@@ -140,10 +141,10 @@ public:
       // this feature has NOT BEEN TESTED. TEST IT BEFORE USE !!
 		  // if (newNode->data == current->data)
 		  // {
-		  // 	this->count -= 2;
+		  // 	this->count -= 1;
 		  // 	delete newNode;
       //  newNode == NULL;
-		  // 	cout << "duplicates machine cannot be inserted " << endl;
+		  // 	cout << "Duplicate data cannot be inserted\n";
 		  // 	return;
 		  // }
 		  if (current->next == this->head && current->next->data > data) {
