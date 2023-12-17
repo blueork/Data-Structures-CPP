@@ -8,4 +8,8 @@ The following data structures have been implemented
 2. Queues
 3. Singly Linked List
 4. Circular Linked List
-5. Doubly Circular Linked List
+5. Doubly Linked List
+6. Doubly Circular Linked List
+
+### NOTE:
+Test before using
