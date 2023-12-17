@@ -52,7 +52,7 @@ public:
   CircularLinkedList<T>() {
     this->head = NULL;
     this->tail = NULL;
-    int count = 0;
+    this->count = 0;
   }
   // parameterized constructor
   CircularLinkedList<T>(CircularLinkedListNode<T>* head, 
@@ -66,7 +66,7 @@ public:
     this->head = new CircularLinkedListNode<T>(data);
     this->tail = head;
     this->head->next = this->head;
-    this->count = 0;
+    this->count = 1;
   }
   // destructor
   ~CircularLinkedList<T>() {
@@ -127,7 +127,7 @@ public:
       // this feature has NOT BEEN TESTED. TEST IT BEFORE USE !!
 		  // if (newNode->data == current->data)
 		  // {
-		  // 	this->count -= 2;
+		  // 	this->count -= 1;
 		  // 	delete newNode;
       //  newNode == NULL;
 		  // 	cout << "Duplicate data cannot be inserted\n";
