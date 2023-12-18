@@ -38,9 +38,20 @@ private:
 		this->inorderTraversal(2 * index);
 		cout << this->treeArray[index] << " ";
 		this->inorderTraversal(2 * index + 1);
-  }
+  	}
+  	void preOrderTraversal() {
+      		if(this->treeArray[this->root] == -1)
+        		return;
+      		for(int i = this->root; i < this->current_index; ++i)
+        		cout<<this->treeArray[i]<<" ";
+      		cout<<endl;
+  	}
 public:
 	void displayInorder() {
 		this->inorderTraversal(this->root);
+		cout<<endl;
+	}
+	void displayPreOrder() {
+	    	this->preOrderTraversal();
 	}
 };
