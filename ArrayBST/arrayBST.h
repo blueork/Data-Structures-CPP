@@ -29,6 +29,14 @@ public:
 		else
 			cout << "Tree is full\n";
 	}
+	bool search(int value) {
+	    if(this->treeArray[this->root] == -1)
+	        return false;
+	    for(int i = this->root; i < current_index; ++i)
+	        if(this->treeArray[i] == value)
+	            return true;
+	    return false;
+	}
 private:
 	void inorderTraversal(int index) {
 		if (index >= this->capacity)
