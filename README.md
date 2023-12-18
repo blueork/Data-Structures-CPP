@@ -10,7 +10,7 @@ The following data structures have been implemented
 4. Circular Linked List
 5. Doubly Linked List
 6. Doubly Circular Linked List
-7. Array Based Implementation of BST
+7. Array Based Implementation of Binary Tree
 
 ### NOTE:
 Test before using
