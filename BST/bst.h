@@ -255,7 +255,6 @@ public:
 			cout << endl;
 		}
 	}
-
 private:
 // 	void deleteNode(Node<T>*& curr) {
 // 		if (curr->left == NULL) {
@@ -342,4 +341,20 @@ public:
 		else
 			levelOrder(this->root);
 	}
+private:
+    	int countLeafNodes(Node<T>* current) {
+        	if(current == NULL)
+            		return 0;
+        	else if(current->left == NULL && current->right == NULL)
+            		return 1;
+        	else 
+            		return this->countLeafNodes(current->left) + this->countLeafNodes(current->right);
+    	}
+public:
+    	int countLeafNodes() {
+        	if(this->root)
+            		return this->countLeafNodes(this->root);
+        	else 
+            		return -1;
+    	}
 };
