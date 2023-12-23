@@ -8,13 +8,9 @@ public:
 	int data;
 	CBTNode* left;
 	CBTNode* right;
-	CBTNode(CBTNode* left = NULL, CBTNode* right = NULL, int data = 0) {
+	CBTNode(int data = 0, CBTNode* left = NULL, CBTNode* right = NULL) {
 		this->left = left;
 		this->right = right;
-		this->data = data;
-	}
-	CBTNode(int data) {
-		this->left = this->right = NULL;
 		this->data = data;
 	}
 	~CBTNode() {
