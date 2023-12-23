@@ -123,17 +123,15 @@ public:
 		  while (current->next != head && current->next->data < data) {
 			  current = current->next;
 		  }
-      // uncomment if duplicates are not to be stored
-      // this feature has NOT BEEN TESTED. TEST IT BEFORE USE !!
-		  // if (newNode->data == current->data)
-		  // {
+      	// uncomment if duplicates are not to be stored
+		  // if (newNode->data == current->next->data) {
 		  // 	this->count -= 1;
 		  // 	delete newNode;
-      //  newNode == NULL;
+      		  //  	newNode == NULL;
 		  // 	cout << "Duplicate data cannot be inserted\n";
 		  // 	return;
 		  // }
-		  if (current->next == this->head && current->next->data > data) {
+		  else if (current->next == this->head && current->next->data > data) {
 			  newNode->next = this->head;
 			  this->tail->next = newNode;
 			  this->head = newNode;
