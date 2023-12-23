@@ -29,7 +29,26 @@ public:
 	BinaryTreeNode(Node* root = NULL) {
 		this->root = root;
 	}
-	void insertNode(int data) {
+	void clear() {
+    if(this->root) {
+      Node* current = this->root;
+      Queue<Node*> binaryNodeQueue;					// building queue with 
+			binaryNodeQueue.enqueue(current);		// nodes of the binary tree
+      while(!binaryNodeQueue.is_empty()) {
+        current = binaryNodeQueue.dequeue();
+        if(current) {
+          if(current->left)
+            binaryNodeQueue.enqueue(current->left);
+          if(current->right)
+            binaryNodeQueue.enqueue(current->right);
+          delete current;
+          current = NULL;  
+        }
+      }
+    }
+    this->root = NULL;
+  }
+  void insertNode(int data) {
 		Node* newNode = new Node(data);
 		Node* currNode = this->root;
 		if (currNode == NULL) {								// if root is empty
