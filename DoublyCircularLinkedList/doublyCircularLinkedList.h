@@ -139,11 +139,11 @@ public:
 		  }
       // uncomment if duplicates are not to be stored
       // this feature has NOT BEEN TESTED. TEST IT BEFORE USE !!
-		  // if (newNode->data == current->data)
+		  // if (newNode->data == current->next->data)
 		  // {
 		  // 	this->count -= 1;
 		  // 	delete newNode;
-      //  newNode == NULL;
+      		  //  	newNode = NULL;
 		  // 	cout << "Duplicate data cannot be inserted\n";
 		  // 	return;
 		  // }
