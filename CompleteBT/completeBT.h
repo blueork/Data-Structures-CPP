@@ -3,21 +3,21 @@
 using namespace std;
 
 // Node Class for Pointer Implementation of Complete Binary Tree
-class Node {
+class CBTNode {
 public:
 	int data;
-	Node* left;
-	Node* right;
-	Node(Node* left = NULL, Node* right = NULL, int data = 0) {
+	CBTNode* left;
+	CBTNode* right;
+	CBTNode(CBTNode* left = NULL, CBTNode* right = NULL, int data = 0) {
 		this->left = left;
 		this->right = right;
 		this->data = data;
 	}
-	Node(int data) {
+	CBTNode(int data) {
 		this->left = this->right = NULL;
 		this->data = data;
 	}
-	~Node() {
+	~CBTNode() {
 		this->left = NULL;
 		this->right = NULL;
 	}
@@ -25,9 +25,9 @@ public:
 // Node based impelementation of Complete Binary Tree
 class CBT {
 private:
-  Node* root;
+  CBTNode* root;
 public:
-	CBT(Node* root = NULL) {
+	CBT(CBTNode* root = NULL) {
 		this->root = root;
 	}
 	~CBT() {
@@ -36,8 +36,8 @@ public:
   }
   void clear() {
     if(this->root) {
-      Node* current = this->root;
-      Queue<Node*> binaryNodeQueue;					// building queue with 
+      CBTNode* current = this->root;
+      Queue<CBTNode*> binaryNodeQueue;					// building queue with 
 			binaryNodeQueue.enqueue(current);		// nodes of the binary tree
       while(!binaryNodeQueue.is_empty()) {
         current = binaryNodeQueue.dequeue();
@@ -54,14 +54,14 @@ public:
     this->root = NULL;
   }
   void insertNode(int data) {
-		Node* newNode = new Node(data);
-		Node* currNode = this->root;
+		CBTNode* newNode = new CBTNode(data);
+		CBTNode* currNode = this->root;
 		if (currNode == NULL) {								// if root is empty
 			this->root = newNode;
 			return;
 		}
 		else {																// if root is not empty
-			Queue<Node*> binaryNodeQueue;					// building queue with 
+			Queue<CBTNode*> binaryNodeQueue;					// building queue with 
 			binaryNodeQueue.enqueue(currNode);		// nodes of the binary tree;
 			while (!binaryNodeQueue.is_empty()) {		// until no node is left 
 				currNode = binaryNodeQueue.dequeue();
@@ -80,7 +80,7 @@ public:
 			}
 		}
 	}
-	void inOrderTraversal(Node* node) {		// recursive func for inorder display
+	void inOrderTraversal(CBTNode* node) {		// recursive func for inorder display
 		if (node == NULL)
 			return;
 		else {
