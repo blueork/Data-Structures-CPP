@@ -23,13 +23,14 @@ public:
 	}
 };
 // Node based impelementation of Complete Binary Tree
-class BinaryTreeNode {
+class CBT {
+private:
+  Node* root;
 public:
-	Node* root;
-	BinaryTreeNode(Node* root = NULL) {
+	CBT(Node* root = NULL) {
 		this->root = root;
 	}
-	~BinaryTreeNode() {
+	~CBT() {
     if(this->root)
       this->clear();
   }
