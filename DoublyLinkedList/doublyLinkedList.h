@@ -145,7 +145,7 @@ public:
 		  // if (newNode->data == current->data) {
 		  // 	this->count -= 1;
 		  // 	delete newNode;
-      //  newNode == NULL;
+      		  //  	newNode = NULL;
 		  // 	cout << "Duplicate data cannot be inserted\n";
 		  // 	return;
 		  // }
