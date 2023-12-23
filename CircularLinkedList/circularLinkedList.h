@@ -131,21 +131,25 @@ public:
 		  // 	cout << "Duplicate data cannot be inserted\n";
 		  // 	return;
 		  // }
+		  // if data is to be inserted at head
 		  if (current->next == this->head && current->next->data > data) {
 			  newNode->next = this->head;
 			  this->tail->next = newNode;
 			  this->head = newNode;
 		  }
+		  // if the list has only one element and data is to be inserted at the head
 		  else if (current == this->head && current->data > newNode->data) {
 			  newNode->next = this->head;
 			  this->tail->next = newNode;
 			  this->head = newNode;
 		  }
+		  // if the data is to be inserted in-between current and current->next
 		  else {
 			  newNode->next = current->next;
 			  current->next = newNode;
-			if (newNode->next == this->head) {
-				    this->tail = newNode;
+			  // if the data is inserted at the tail
+			  if (newNode->next == this->head) {
+			  	this->tail = newNode;
 		    }
 	    }
     }
