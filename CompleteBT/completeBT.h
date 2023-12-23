@@ -90,9 +90,15 @@ public:
 		}
 	}
 	void inorderTraversal() {
-		this->inOrderTraversal(this->root);
-	}
+		if(this->root)
+      this->inOrderTraversal(this->root);
+    else
+      cout<<"This Tree is Empty\n";
+  }
 	void display() {
-		this->inOrderTraversal(this->root);
-	}
+    if(this->root)
+		  this->inOrderTraversal(this->root);
+    else
+    cout<<"The Tree is Empty\n";
+  }
 };
