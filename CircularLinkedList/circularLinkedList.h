@@ -127,11 +127,11 @@ public:
 		  // if (newNode->data == current->next->data) {
 		  // 	this->count -= 1;
 		  // 	delete newNode;
-      		  //  	newNode == NULL;
+      		  //  	newNode = NULL;
 		  // 	cout << "Duplicate data cannot be inserted\n";
 		  // 	return;
 		  // }
-		  else if (current->next == this->head && current->next->data > data) {
+		  if (current->next == this->head && current->next->data > data) {
 			  newNode->next = this->head;
 			  this->tail->next = newNode;
 			  this->head = newNode;
