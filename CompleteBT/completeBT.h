@@ -29,7 +29,11 @@ public:
 	BinaryTreeNode(Node* root = NULL) {
 		this->root = root;
 	}
-	void clear() {
+	~BinaryTreeNode() {
+    if(this->root)
+      this->clear();
+  }
+  void clear() {
     if(this->root) {
       Node* current = this->root;
       Queue<Node*> binaryNodeQueue;					// building queue with 
