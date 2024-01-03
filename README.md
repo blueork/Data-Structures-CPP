@@ -13,7 +13,7 @@ The following data structures have been implemented
 7. Array Based Implementation of Binary Tree
 8. Complete Binary Tree
 9. Binary Search Tree with inorder successor deletion
-10. AVL Tree
+10. AVL Tree with inorder successor deletion
 
 ### NOTE:
 Test before using
