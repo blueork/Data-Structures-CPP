@@ -281,17 +281,17 @@ public:
 		cout << "\n";
 	}
 	// displays the tree in inorder
-	void inOrderDisplay() {
+	void inorderDisplay() {
 		this->display();
 	}
 	// displays the tree in preorder
-	void preOrderDisplay() {
+	void preorderDisplay() {
 		cout << "Pre-order traversal: ";
 		this->preorder(root);
 		cout << "\n";
 	}
 	// displays the tree in postorder
-	void postOrderDisplay() {
+	void postorderDisplay() {
 		cout << "Post-order traversal: ";
 		this->postorder(root);
 		cout << "\n";
