@@ -21,6 +21,7 @@ public:
 // Implementation of the AVL Tree ADT
 class AVLTree {
 private:
+	AVLNode* root;
 	void insert(AVLNode*& current, int& data) {
 		if (current == NULL)			
 			return;
@@ -196,7 +197,6 @@ private:
 		return findMaxValue(current->right);
 	}
 public:
-	AVLNode* root;
 	AVLTree(AVLNode* root = NULL) {
 		this->root = root;
 	}
