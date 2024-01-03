@@ -1,12 +1,11 @@
 #include <iostream>
 using namespace std;
 
+// Implementation of Node for the AVL Tree ADT
 class AVLNode {
 public:
-	int data;
-	AVLNode* left;
-	AVLNode* right;
-	int height;
+	int data, height;
+	AVLNode* left, * right;
 	AVLNode( int data = 0, AVLNode* left = NULL, AVLNode* right = NULL, int height = 0) {
 		this->data = data;
 		this->left = left;
@@ -19,6 +18,7 @@ public:
 	}
 };
 
+// Implementation of the AVL Tree ADT
 class AVLTree {
 private:
 	void insert(AVLNode*& current, int& data) {
