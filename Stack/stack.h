@@ -9,14 +9,8 @@ private:
   public:
     U data;
     Node<U>* next;
-    Node<U>() {
-      this->data = 0;
-      this->next = NULL;
-    }
-    Node<U>(U data, Node<U>* next = NULL) {
-      this->data = data;
-      this->next = next;
-    }
+    Node<U>() : data(0), next(NULL) {}
+    Node<U>(U data, Node<U>* next = NULL) : data(data), next(next) {}
     ~Node<U>() {
       this->next = NULL;
     }
@@ -24,12 +18,8 @@ private:
 private:
   Node<T>* head;
 public:
-  Stack<T>() {
-    this->head = NULL;
-  }
-  Stack<T>(T data) {
-    this->head = new Node<T>(data);
-  }
+  Stack<T>() : head(NULL) {}
+  Stack<T>(T data) : head(new Node<T>(data)) {}
   ~Stack<T>() {
     this->MAKENULL();
   }
