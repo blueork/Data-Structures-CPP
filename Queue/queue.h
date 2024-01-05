@@ -61,19 +61,19 @@ public:
 				data = this->rear->data;
 				delete this->rear;
 				this->rear = this->front = NULL;
-				this->num = 0;
-				return data;
 			}
-			Node<T>* curr = this->front;
-			this->front = this->front->next;
-			data = curr->data;
-			delete curr;
-			curr = NULL;
+			else {
+				Node<T>* curr = this->front;
+				this->front = this->front->next;
+				data = curr->data;
+				delete curr;
+				curr = NULL; 
+			}
 			--this->num;
 			return data;
 		}
 		else {
-			cout << "Queue is Empty. Returning 0" << endl;
+			std::cout << "Queue is Empty. Returning 0" << std::endl;
 			T temp = 0;
 			return temp;
 		}
@@ -83,7 +83,7 @@ public:
 		if (this->front)
 			return this->front->data;
 		else {
-			cout << "Queue is Empty. Returning 0" << endl;
+			std::cout << "Queue is Empty. Returning 0" << std::endl;
 			T temp = 0;
 			return temp;
 		}
