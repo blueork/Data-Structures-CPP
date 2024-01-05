@@ -13,9 +13,33 @@ int main() {
   cout<<alpha.peek()<<endl;
   cout<<alpha.isEmpty()<<endl;
   alpha.display();
+  cout<<alpha.size()<<endl;
+  
   alpha.dequeue();
-  cout<<endl;
+  cout<<alpha.peek()<<endl;
+  cout<<alpha.isEmpty()<<endl;
   alpha.display();
+  cout<<alpha.size()<<endl;
+
+  alpha.dequeue();
+  cout<<alpha.peek()<<endl;
+  cout<<alpha.isEmpty()<<endl;
+  alpha.display();
+  cout<<alpha.size()<<endl;  
+  
+  alpha.dequeue();
+  cout<<alpha.peek()<<endl;
+  cout<<alpha.isEmpty()<<endl;
+  alpha.display();
+  cout<<alpha.size()<<endl;
+  
+  alpha.clear();
+
+  alpha.dequeue();
+  cout<<alpha.peek()<<endl;
+  cout<<alpha.isEmpty()<<endl;
+  alpha.display();
+  cout<<alpha.size()<<endl;
   
   return 0;
 }
