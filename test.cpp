@@ -1,45 +1,15 @@
 #include <iostream>
-#include ".\Queue\queue.h"
+#include ".\BST\bst.h"
 using namespace std;
 
 int main() {
 
-  Queue<int> alpha;
-
-  alpha.enqueue(1);
-  alpha.enqueue(2);
-  alpha.enqueue(3);
-
-  cout<<alpha.peek()<<endl;
-  cout<<alpha.isEmpty()<<endl;
-  alpha.display();
-  cout<<alpha.size()<<endl;
-  
-  alpha.dequeue();
-  cout<<alpha.peek()<<endl;
-  cout<<alpha.isEmpty()<<endl;
-  alpha.display();
-  cout<<alpha.size()<<endl;
-
-  alpha.dequeue();
-  cout<<alpha.peek()<<endl;
-  cout<<alpha.isEmpty()<<endl;
-  alpha.display();
-  cout<<alpha.size()<<endl;  
-  
-  alpha.dequeue();
-  cout<<alpha.peek()<<endl;
-  cout<<alpha.isEmpty()<<endl;
-  alpha.display();
-  cout<<alpha.size()<<endl;
-  
-  alpha.clear();
-
-  alpha.dequeue();
-  cout<<alpha.peek()<<endl;
-  cout<<alpha.isEmpty()<<endl;
-  alpha.display();
-  cout<<alpha.size()<<endl;
+  BST<int> alpha;
+  alpha.insert(1);
+  alpha.insert(2);
+  alpha.insert(3);
+  alpha.levelWise();
+  cout<<alpha.countLeafNodes();
   
   return 0;
 }
