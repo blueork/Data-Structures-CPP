@@ -1,70 +1,39 @@
 #include <iostream>
 //using namespace std;
 
-// template<typename T>
-// class NodeForStack {
-// private:
-//   T data;
-//   NodeForStack<T>* next;
-// public:
-//   NodeForStack<T>() {
-//     this->data = 0;
-//     this->next = NULL;
-//   }
-//   NodeForStack<T>(T data, NodeForStack<T>* next = NULL) {
-//     this->data = data;
-//     this->next = next;
-//   }
-//   ~NodeForStack<T>() {
-//     this->next = NULL;
-//   }
-//   T getData() const {
-//     return this->data;
-//   }
-//   NodeForStack<T>* getNext() const {
-//     return this->next;
-//   }
-//   void setData(T data) {
-//     this->data = data;
-//   }
-//   void setNext(NodeForStack<T>* next) {
-//     this->next = next;
-//   }
-// };
-
 template<typename T>
 class Stack {
 private:
   template<typename U>
   class NodeForStack {
-private:
-  U data;
-  NodeForStack<U>* next;
-public:
-  NodeForStack<U>() {
-    this->data = 0;
-    this->next = NULL;
-  }
-  NodeForStack<U>(U data, NodeForStack<U>* next = NULL) {
-    this->data = data;
-    this->next = next;
-  }
-  ~NodeForStack<U>() {
-    this->next = NULL;
-  }
-  T getData() const {
-    return this->data;
-  }
-  NodeForStack<U>* getNext() const {
-    return this->next;
-  }
-  void setData(U data) {
-    this->data = data;
-  }
-  void setNext(NodeForStack<U>* next) {
-    this->next = next;
-  }
-};
+  private:
+    U data;
+    NodeForStack<U>* next;
+  public:
+    NodeForStack<U>() {
+      this->data = 0;
+      this->next = NULL;
+    }
+    NodeForStack<U>(U data, NodeForStack<U>* next = NULL) {
+      this->data = data;
+      this->next = next;
+    }
+    ~NodeForStack<U>() {
+      this->next = NULL;
+    }
+    T getData() const {
+      return this->data;
+    }
+    NodeForStack<U>* getNext() const {
+      return this->next;
+    }
+    void setData(U data) {
+      this->data = data;
+    }
+    void setNext(NodeForStack<U>* next) {
+      this->next = next;
+    }
+  };
 private:
   NodeForStack<T>* head;
 public:
