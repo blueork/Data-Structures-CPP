@@ -90,4 +90,14 @@ public:
 			return temp;
 		}
 	}
+	// displays from last to first
+	void display() const {
+		if(this->front != NULL && this->rear != NULL) {
+			Node<T>* curr = this->rear;
+			while(curr) {
+				std::cout<<curr->data<<" ";
+				curr = curr->next;
+			}
+		}
+	}
 };

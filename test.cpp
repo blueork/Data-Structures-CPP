@@ -10,8 +10,9 @@ int main() {
   alpha.enqueue(2);
   alpha.enqueue(3);
 
-  cout<<alpha.peek();
-  cout<<alpha.isEmpty();
+  cout<<alpha.peek()<<endl;
+  cout<<alpha.isEmpty()<<endl;
+  alpha.display();
   
   return 0;
 }
