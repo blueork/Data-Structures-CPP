@@ -5,53 +5,40 @@ template<typename T>
 class Stack {
 private:
   template<typename U>
-  class NodeForStack {
-  private:
-    U data;
-    NodeForStack<U>* next;
+  class Node {
   public:
-    NodeForStack<U>() {
+    U data;
+    Node<U>* next;
+    Node<U>() {
       this->data = 0;
       this->next = NULL;
     }
-    NodeForStack<U>(U data, NodeForStack<U>* next = NULL) {
+    Node<U>(U data, Node<U>* next = NULL) {
       this->data = data;
       this->next = next;
     }
-    ~NodeForStack<U>() {
+    ~Node<U>() {
       this->next = NULL;
-    }
-    T getData() const {
-      return this->data;
-    }
-    NodeForStack<U>* getNext() const {
-      return this->next;
-    }
-    void setData(U data) {
-      this->data = data;
-    }
-    void setNext(NodeForStack<U>* next) {
-      this->next = next;
     }
   };
 private:
-  NodeForStack<T>* head;
+  Node<T>* head;
 public:
   Stack<T>() {
     this->head = NULL;
   }
   Stack<T>(T data) {
-    this->head = new NodeForStack<T>(data);
+    this->head = new Node<T>(data);
   }
   ~Stack<T>() {
     this->MAKENULL();
   }
   void MAKENULL() {
     if(this->head) {
-      NodeForStack<T>* curr = this->head;
-      NodeForStack<T>* next = NULL;
+      Node<T>* curr = this->head;
+      Node<T>* next = NULL;
       while(curr) {
-        next = curr->getNext();
+        next = curr->next;
         delete curr;
         curr = next;
       }
@@ -60,15 +47,15 @@ public:
   } 
   T TOP() const {
     if(this->head) 
-      return this->head->getData();
+      return this->head->data;
     else
       return 0;
   }
   T POP() {
     if(this->head) {
-      NodeForStack<T>* curr = this->head;
-      this->head = this->head->getNext();
-      T data = curr->getData();
+      Node<T>* curr = this->head;
+      this->head = this->head->next;
+      T data = curr->data;
       delete curr;
       return data;
     }
@@ -76,9 +63,9 @@ public:
       return 0;
   }
   int PUSH(T data) {
-    NodeForStack<T>* newNode = new NodeForStack<T>( data );
+    Node<T>* newNode = new Node<T>(data);
     if(this->head) {
-      newNode->setNext(this->head);
+      newNode->next = this->head;
       this->head = newNode;
     }
     else {
@@ -95,10 +82,10 @@ public:
   }
   void print() const {
     if(this->head) {
-      NodeForStack<T>* curr = this->head;
+      Node<T>* curr = this->head;
       while(curr) {
-        std::cout<<curr->getData()<<std::endl;
-        curr = curr->getNext();
+        std::cout<<curr->data<<std::endl;
+        curr = curr->next;
       }
     }
     else
