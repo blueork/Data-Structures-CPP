@@ -1,5 +1,4 @@
 #include <iostream>
-using namespace std;
 
 // Implementation of the Queue ADT
 template< typename T >
