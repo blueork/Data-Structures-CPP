@@ -16,11 +16,10 @@ private:
 		// desctructor
 		~Node<U>() { this->next = NULL; }
 	};
+private:
+	Node<T>* front, * rear;
+	int num; 
 public:
-	Node<T>* front;
-	Node<T>* rear;
-	int num;
-
 	// constrcutors
 	Queue<T>() : front(NULL), rear(NULL), num(0) {}
 	Queue<T>(T data) : front(new Node<T>(data)), rear(front), num(1) {}
@@ -30,7 +29,7 @@ public:
 	bool isEmpty() const { return this->front == NULL && this->rear == NULL; }
 	// deletes up any entry in the queue
 	void clear() {
-		if (!this->isEmpty()) {
+		if (this->front != NULL && this->rear != NULL) {
 			Node<T>* curr = this->rear;
 			while (curr) {
 				this->rear = curr->next;
