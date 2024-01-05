@@ -8,18 +8,16 @@ public:
 	T data;
 	QueueNode<T>* next;
 	// constructors
-	QueueNode<T>() {
-		this->data = 0;
-		this->next = NULL;
+	QueueNode<T>() : data(data), next(NULL) {
+		// this->data = 0;
+		// this->next = NULL;
 	}
-	QueueNode<T>(T data, QueueNode<T>* next = NULL) {
-		this->data = data;
-		this->next = next;
+	QueueNode<T>(T data, QueueNode<T>* next = NULL) : data(data), next(next){
+		// this->data = data;
+		// this->next = next;
 	}
 	// desctructor
-	~QueueNode<T>() {
-		this->next = NULL;
-	}
+	~QueueNode<T>() { this->next = NULL; }
 };
 
 // Implementation of the Queue ADT
@@ -31,19 +29,17 @@ public:
 	int num;
 
 	// constrcutors
-	Queue<T>() {
-		this->front = this->rear = NULL;
-		this->num = 0;
+	Queue<T>() : front(NULL), rear(NULL), num(0) {
+		// this->front = this->rear = NULL;
+		// this->num = 0;
 	}
-	Queue<T>(T data) {
-		this->front = new QueueNode<T>(data);
-		this->front = this->rear;
-		this->num = 1;
+	Queue<T>(T data) : front(new QueueNode<T>(data)), rear(front), num(1) {
+		// this->front = new QueueNode<T>(data);
+		// this->front = this->rear;
+		// this->num = 1;
 	}
 	// destructor
-	~Queue<T>() {
-		this->clear();
-	}
+	~Queue<T>() { this->clear(); }
 	// returns true if the queue is empty
 	bool is_empty() const {
 		if (this->front && this->rear)

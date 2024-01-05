@@ -1,18 +1,17 @@
 #include <iostream>
-#include ".\CompleteBT\completeBT.h"
+#include ".\Queue\queue.h"
 using namespace std;
 
 int main() {
 
-  CBT alpha;
+  Queue<int> alpha;
 
-  alpha.insertNode(10);
-  alpha.insertNode(10);
-  alpha.insertNode(10);
-  alpha.insertNode(10);
-  alpha.insertNode(10);
-  alpha.display();
-  
+  alpha.enqueue(1);
+  alpha.enqueue(2);
+  alpha.enqueue(3);
+
+  cout<<alpha.peek();
+
   return 0;
 }
 
