@@ -2,119 +2,11 @@
 #include "..\Queue\queue.h"
 using namespace std;
 
-// Node implementation for Queue ADT
-// template< typename T>
-// class QueueNode {
-// public:
-// 	T data;
-// 	QueueNode<T>* next;
-// 	QueueNode<T>(T data = 0, QueueNode<T>* next = NULL) {
-// 		this->data = data;
-// 		this->next = next;
-// 	}
-// 	~QueueNode<T>() {
-// 		this->next = NULL;
-// 	}
-// 	void setNext(QueueNode<T>* next) {
-// 		this->next = next;
-// 	}
-// 	void setData(T data) {
-// 		this->data = data;
-// 	}
-// 	QueueNode<T>* getNext() const {
-// 		return this->next;
-// 	}
-// 	T getData() const {
-// 		return this->data;
-// 	}
-// };
-// // Queue Class
-// template< typename T >
-// class Queue {
-// public:
-// 	QueueNode<T>* front;
-// 	QueueNode<T>* rear;
-// 	Queue<T>() {
-// 		this->front = this->rear = NULL;
-// 	}
-// 	Queue<T>(T data) {
-// 		this->front = new QueueNode<T>(data);
-// 		this->front = this->rear;
-// 	}
-// 	~Queue<T>() {
-// 		this->clear();
-// 	}
-// 	bool is_empty() const {
-// 		if (this->front && this->rear)
-// 			return false;
-// 		else
-// 			return true;
-// 	}
-// 	void clear() {
-// 		if (!this->is_empty()) {
-// 			QueueNode<T>* curr = this->rear;
-// 			while (curr) {
-// 				this->rear = curr->next;
-// 				delete curr;
-// 				curr = this->rear;
-// 			}
-// 			this->rear = this->front = NULL;
-// 		}
-// 	}
-// 	void enqueue(T data) {
-// 		QueueNode<T>* newNode = new QueueNode<T>(data);
-// 		if (!this->is_empty()) {
-// 			newNode->next = this->rear;
-// 			this->rear = newNode;
-// 		}
-// 		else {
-// 			this->rear = this->front = newNode;
-// 		}
-// 	}
-// 	T dequeue() {
-// 		if (!this->is_empty()) {
-// 			T data;
-// 			if (this->rear == this->front) {
-// 				data = this->rear->data;
-// 				delete this->rear;
-// 				this->rear = this->front = NULL;
-// 				return data;
-// 			}
-// 			QueueNode<T>* prev = this->rear;
-// 			while (prev->next != this->front) {
-// 				prev = prev->next;
-// 			}
-// 			data = this->front->data;
-// 			delete this->front;
-// 			this->front = prev;
-// 			this->front->next = NULL;
-// 			return data;
-// 		}
-// 		else {
-// 			cout << "Queue is Empty. Returning 0" << endl;
-// 			T temp;
-// 			return temp;
-// 		}
-// 	}
-// 	T peek() const {
-// 		if (!this->is_empty())
-// 			return this->front->data;
-// 		else {
-// 			cout << "Queue is Empty. Returning 0" << endl;
-// 			T temp;
-// 			return temp;
-// 		}
-// 	}
-// };
-////
-
-// Task 01
 template< typename T >
 class Node {
 public:
 	T key;
-	Node<T>* left;
-	Node<T>* right;
+	Node<T>* left, * right;
 	Node<T>(T value = 0, Node<T>* left = NULL, Node<T>* right = NULL) {
 		this->key = value;
 		this->left = left;
@@ -136,12 +28,9 @@ public:
 	BST<T>(Node<T>* root = NULL) {
 		this->root = root;
 	}
-	~BST<T>() {
-		this->root = NULL;
-	}
-	Node<T>* getRoot() const {
-		return this->root;
-	}
+	~BST<T>() { this->root = NULL; }
+	Node<T>* getRoot() const { return this->root; }
+
 private:
 	void insert(Node<T>*& curr, T insertItem) {
 		if (curr == NULL) {
@@ -157,7 +46,6 @@ private:
 	}
 public:
 	void insert(T insertItem) {
-		
 		if (this->root == NULL) {
 			Node<T>* newNode = new Node<T>(insertItem);
 			this->root = newNode;
@@ -169,6 +57,7 @@ public:
 				insert(this->root->right, insertItem);
 		}
 	}
+
 private:
 	bool search(Node<T>* curr, T searchItem) {
 		if (curr == NULL)
@@ -194,7 +83,6 @@ public:
 		}
 		return false;
 	}
-
 
 private:
 	void inorderTraversalRecursive(Node<T>* curr) {
@@ -236,7 +124,6 @@ public:
 		}
 	}
 
-
 private:
 	void postOrderTraversalRecursive(Node<T>* curr) {
 		if (curr == NULL)
@@ -256,6 +143,7 @@ public:
 			cout << endl;
 		}
 	}
+
 private:
 // 	void deleteNode(Node<T>*& curr) {
 // 		if (curr->left == NULL) {
@@ -281,9 +169,9 @@ private:
 // 			curr = temp2;
 // 		}
 // 	}
-    void deleteNode(Node<T>*& curr) {
+  void deleteNode(Node<T>*& curr) {
 		if (curr->left == NULL) {
-			Node<T>* temp = curr;
+		Node<T>* temp = curr;
 			curr = curr->right;
 			delete temp;
 			temp = NULL;
@@ -301,7 +189,7 @@ private:
 		    *curr = *inOrderSuccessor;
 		    this->remove(curr->right, curr->key);
 		}
-    }
+  }
 	void remove(Node<T>*& curr, T key) {
 		if (curr == NULL)
 			return;
@@ -342,20 +230,21 @@ public:
 		else
 			levelOrder(this->root);
 	}
+
 private:
-    	int countLeafNodes(Node<T>* current) {
-        	if(current == NULL)
-            		return 0;
-        	else if(current->left == NULL && current->right == NULL)
-            		return 1;
-        	else 
-            		return this->countLeafNodes(current->left) + this->countLeafNodes(current->right);
-    	}
+  int countLeafNodes(Node<T>* current) {
+    if(current == NULL)
+      return 0;
+    else if(current->left == NULL && current->right == NULL)
+      return 1;
+    else 
+      return this->countLeafNodes(current->left) + this->countLeafNodes(current->right);
+  }
 public:
-    	int countLeafNodes() {
-        	if(this->root)
-            		return this->countLeafNodes(this->root);
-        	else 
-            		return -1;
-    	}
+  int countLeafNodes() {
+    if(this->root)
+      return this->countLeafNodes(this->root);
+    else 
+    	return -1;
+  }
 };
