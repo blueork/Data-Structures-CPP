@@ -52,17 +52,14 @@ public:
     else
       return 0;
   }
-  int PUSH(T data) {
+  void PUSH(T data) {
     Node<T>* newNode = new Node<T>(data);
     if(this->head) {
       newNode->next = this->head;
       this->head = newNode;
     }
-    else {
+    else 
       this->head = newNode;
-      return 1;
-    }
-    return -1;
   }
   bool EMPTY() {
     if(this->head)
