@@ -13,6 +13,9 @@ int main() {
   cout<<alpha.peek()<<endl;
   cout<<alpha.isEmpty()<<endl;
   alpha.display();
+  alpha.dequeue();
+  cout<<endl;
+  alpha.display();
   
   return 0;
 }

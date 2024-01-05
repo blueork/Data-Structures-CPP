@@ -24,7 +24,9 @@ public:
 	Queue<T>() : front(NULL), rear(NULL), num(0) {}
 	Queue<T>(T data) : front(new Node<T>(data)), rear(front), num(1) {}
 	// destructor
-	~Queue<T>() { this->clear(); }
+	~Queue<T>() { 
+		//this->clear(); 
+		}
 	// returns true if the queue is empty
 	bool isEmpty() const { return this->front == NULL && this->rear == NULL; }
 	// deletes up any entry in the queue
@@ -47,7 +49,7 @@ public:
 		Node<T>* newNode = new Node<T>(data);
 		++this->num;
 		if (this->front) {
-			newNode->next = this->rear;
+			this->rear->next = newNode;
 			this->rear = newNode;
 		}
 		else 
@@ -64,13 +66,11 @@ public:
 				this->num = 0;
 				return data;
 			}
-			Node<T>* prev = this->rear;
-			while (prev->next != this->front) 
-				prev = prev->next;
-			data = this->front->data;
-			delete this->front;
-			this->front = prev;
-			this->front->next = NULL;
+			Node<T>* curr = this->front;
+			this->front = this->front->next;
+			data = curr->data;
+			delete curr;
+			curr = NULL;
 			--this->num;
 			return data;
 		}
@@ -93,7 +93,7 @@ public:
 	// displays from last to first
 	void display() const {
 		if(this->front != NULL && this->rear != NULL) {
-			Node<T>* curr = this->rear;
+			Node<T>* curr = this->front;
 			while(curr) {
 				std::cout<<curr->data<<" ";
 				curr = curr->next;
