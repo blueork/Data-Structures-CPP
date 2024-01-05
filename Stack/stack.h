@@ -61,12 +61,7 @@ public:
     else 
       this->head = newNode;
   }
-  bool EMPTY() {
-    if(this->head)
-      return false;
-    else
-      return true;
-  }
+  bool EMPTY() const { return this->head == NULL; }
   void print() const {
     if(this->head) {
       Node<T>* curr = this->head;

@@ -8,6 +8,9 @@ int main() {
   alpha.PUSH(3);
 
   alpha.print();
+  std::cout<<alpha.EMPTY();
+  alpha.MAKENULL();
+  std::cout<<alpha.EMPTY();
   
   return 0;
 }
