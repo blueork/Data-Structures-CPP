@@ -24,19 +24,18 @@ public:
 	Queue<T>() : front(NULL), rear(NULL), num(0) {}
 	Queue<T>(T data) : front(new Node<T>(data)), rear(front), num(1) {}
 	// destructor
-	~Queue<T>() { 
-		//this->clear(); 
-		}
+	~Queue<T>() { this->clear(); }
 	// returns true if the queue is empty
 	bool isEmpty() const { return this->front == NULL && this->rear == NULL; }
-	// deletes up any entry in the queue
+	// deletes up all of the elements in the queue
 	void clear() {
 		if (this->front != NULL && this->rear != NULL) {
-			Node<T>* curr = this->rear;
-			while (curr) {
-				this->rear = curr->next;
+			Node<T>* curr = this->front;
+			while(curr) {
+				this->front = curr->next;
 				delete curr;
-				curr = this->rear;
+				curr = NULL;
+				curr = this->front;
 			}
 			this->rear = this->front = NULL;
 			this->num = 0;
@@ -90,7 +89,7 @@ public:
 			return temp;
 		}
 	}
-	// displays from last to first
+	// displays from first to last
 	void display() const {
 		if(this->front != NULL && this->rear != NULL) {
 			Node<T>* curr = this->front;
