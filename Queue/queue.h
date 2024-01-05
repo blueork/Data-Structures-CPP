@@ -41,15 +41,15 @@ public:
 	// destructor
 	~Queue<T>() { this->clear(); }
 	// returns true if the queue is empty
-	bool isEmpty() const {
-		if (this->front && this->rear)
-			return false;
-		else
-			return true;
-	}
+	bool isEmpty() const { return this->front == NULL && this->rear == NULL; }
+		// if (this->front && this->rear)
+		// 	return false;
+		// else
+		// 	return true;
+	//}
 	// deletes up any entry in the queue
 	void clear() {
-		if (!this->is_empty()) {
+		if (!this->isEmpty()) {
 			QueueNode<T>* curr = this->rear;
 			while (curr) {
 				this->rear = curr->next;
