@@ -41,7 +41,7 @@ public:
 	// destructor
 	~Queue<T>() { this->clear(); }
 	// returns true if the queue is empty
-	bool is_empty() const {
+	bool isEmpty() const {
 		if (this->front && this->rear)
 			return false;
 		else
