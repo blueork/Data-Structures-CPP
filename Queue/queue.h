@@ -25,26 +25,26 @@ template< typename T >
 class Queue {
 private:
 	template<typename U>
-	class QueueNode {
+	class Node {
 public:
 	U data;
-	QueueNode<U>* next;
+	Node<U>* next;
 	// constructors
-	QueueNode<U>() : data(data), next(NULL) {
+	Node<U>() : data(data), next(NULL) {
 		// this->data = 0;
 		// this->next = NULL;
 	}
-	QueueNode<U>(T data, QueueNode<U>* next = NULL) : data(data), next(next){
+	Node<U>(T data, Node<U>* next = NULL) : data(data), next(next){
 		// this->data = data;
 		// this->next = next;
 	}
 	// desctructor
-	~QueueNode<U>() { this->next = NULL; }
+	~Node<U>() { this->next = NULL; }
 };
 
 public:
-	QueueNode<T>* front;
-	QueueNode<T>* rear;
+	Node<T>* front;
+	Node<T>* rear;
 	int num;
 
 	// constrcutors
@@ -52,7 +52,7 @@ public:
 		// this->front = this->rear = NULL;
 		// this->num = 0;
 	}
-	Queue<T>(T data) : front(new QueueNode<T>(data)), rear(front), num(1) {
+	Queue<T>(T data) : front(new Node<T>(data)), rear(front), num(1) {
 		// this->front = new QueueNode<T>(data);
 		// this->front = this->rear;
 		// this->num = 1;
@@ -69,7 +69,7 @@ public:
 	// deletes up any entry in the queue
 	void clear() {
 		if (!this->isEmpty()) {
-			QueueNode<T>* curr = this->rear;
+			Node<T>* curr = this->rear;
 			while (curr) {
 				this->rear = curr->next;
 				delete curr;
@@ -85,7 +85,7 @@ public:
 	}
 	// enqueue functionality
 	void enqueue(T data) {
-		QueueNode<T>* newNode = new QueueNode<T>(data);
+		Node<T>* newNode = new Node<T>(data);
 		++this->num;
 		if (this->front) {
 			newNode->next = this->rear;
@@ -107,7 +107,7 @@ public:
 				return data;
 
 			}
-			QueueNode<T>* prev = this->rear;
+			Node<T>* prev = this->rear;
 			while (prev->next != this->front) {
 				prev = prev->next;
 			}
