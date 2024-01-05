@@ -10,6 +10,10 @@ int main() {
   alpha.insert(3);
   alpha.levelWise();
   cout<<alpha.countLeafNodes();
+
+  alpha.preorderTraversal();
+  alpha.inorderTraversal();
+  alpha.postorderTraversal();
   
   return 0;
 }

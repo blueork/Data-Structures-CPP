@@ -115,7 +115,7 @@ private:
 		}
 	}
 public:
-	void preOrderTraversal() {
+	void preorderTraversal() {
 		if (this->root == NULL)
 			cout << "BST is Empty" << endl;
 		else {
@@ -125,21 +125,21 @@ public:
 	}
 
 private:
-	void postOrderTraversalRecursive(Node<T>* curr) {
+	void postorderTraversalRecursive(Node<T>* curr) {
 		if (curr == NULL)
 			return;
 		else {
-			postOrderTraversalRecursive(curr->left);
-			postOrderTraversalRecursive(curr->right);
+			postorderTraversalRecursive(curr->left);
+			postorderTraversalRecursive(curr->right);
 			cout << curr->key << " ";
 		}
 	}
 public:
-	void postOrderTraversal() {
+	void postorderTraversal() {
 		if (this->root == NULL)
 			cout << "BST is Empty" << endl;
 		else {
-			postOrderTraversalRecursive(this->root);
+			postorderTraversalRecursive(this->root);
 			cout << endl;
 		}
 	}
