@@ -1,7 +1,7 @@
 #include <iostream>
 //using namespace std;
 
-template< typename T >
+template<typename T>
 class NodeForStack {
 private:
   T data;
@@ -11,7 +11,7 @@ public:
     this->data = 0;
     this->next = NULL;
   }
-  NodeForStack<T>( T data, NodeForStack<T>* next = NULL ) {
+  NodeForStack<T>(T data, NodeForStack<T>* next = NULL) {
     this->data = data;
     this->next = next;
   }
@@ -24,15 +24,15 @@ public:
   NodeForStack<T>* getNext() const {
     return this->next;
   }
-  void setData( T data ) {
+  void setData(T data) {
     this->data = data;
   }
-  void setNext( NodeForStack<T>* next ) {
+  void setNext(NodeForStack<T>* next) {
     this->next = next;
   }
 };
 
-template< typename T >
+template<typename T>
 class Stack {
 private:
   NodeForStack<T>* head;
@@ -40,17 +40,17 @@ public:
   Stack<T>() {
     this->head = NULL;
   }
-  Stack<T>( T data ) {
-    this->head = new NodeForStack<T>( data );
+  Stack<T>(T data) {
+    this->head = new NodeForStack<T>(data);
   }
   ~Stack<T>() {
     this->MAKENULL();
   }
   void MAKENULL() {
-    if( this->head ) {
+    if(this->head) {
       NodeForStack<T>* curr = this->head;
       NodeForStack<T>* next = NULL;
-      while( curr ) {
+      while(curr) {
         next = curr->getNext();
         delete curr;
         curr = next;
@@ -59,13 +59,13 @@ public:
     }
   } 
   T TOP() const {
-    if( this->head ) 
+    if(this->head) 
       return this->head->getData();
     else
       return 0;
   }
   T POP() {
-    if( this->head ) {
+    if(this->head) {
       NodeForStack<T>* curr = this->head;
       this->head = this->head->getNext();
       T data = curr->getData();
@@ -75,10 +75,10 @@ public:
     else
       return 0;
   }
-  int PUSH( T data ) {
+  int PUSH(T data) {
     NodeForStack<T>* newNode = new NodeForStack<T>( data );
-    if( this->head ) {
-      newNode->setNext( this->head );
+    if(this->head) {
+      newNode->setNext(this->head);
       this->head = newNode;
     }
     else {
@@ -88,15 +88,15 @@ public:
     return -1;
   }
   bool EMPTY() {
-    if( this->head )
+    if(this->head)
       return false;
     else
       return true;
   }
   void print() const {
-    if( this->head ) {
+    if(this->head) {
       NodeForStack<T>* curr = this->head;
-      while( curr ) {
+      while(curr) {
         std::cout<<curr->getData()<<std::endl;
         curr = curr->getNext();
       }
