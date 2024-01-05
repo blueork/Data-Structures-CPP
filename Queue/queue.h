@@ -2,27 +2,46 @@
 using namespace std;
 
 // Implementation of Node for the Queue ADT
-template< typename T>
-class QueueNode {
-public:
-	T data;
-	QueueNode<T>* next;
-	// constructors
-	QueueNode<T>() : data(data), next(NULL) {
-		// this->data = 0;
-		// this->next = NULL;
-	}
-	QueueNode<T>(T data, QueueNode<T>* next = NULL) : data(data), next(next){
-		// this->data = data;
-		// this->next = next;
-	}
-	// desctructor
-	~QueueNode<T>() { this->next = NULL; }
-};
+//template< typename T>
+// class QueueNode {
+// public:
+// 	T data;
+// 	QueueNode<T>* next;
+// 	// constructors
+// 	QueueNode<T>() : data(data), next(NULL) {
+// 		// this->data = 0;
+// 		// this->next = NULL;
+// 	}
+// 	QueueNode<T>(T data, QueueNode<T>* next = NULL) : data(data), next(next){
+// 		// this->data = data;
+// 		// this->next = next;
+// 	}
+// 	// desctructor
+// 	~QueueNode<T>() { this->next = NULL; }
+// };
 
 // Implementation of the Queue ADT
 template< typename T >
 class Queue {
+private:
+	template<typename U>
+	class QueueNode {
+public:
+	U data;
+	QueueNode<U>* next;
+	// constructors
+	QueueNode<U>() : data(data), next(NULL) {
+		// this->data = 0;
+		// this->next = NULL;
+	}
+	QueueNode<U>(T data, QueueNode<U>* next = NULL) : data(data), next(next){
+		// this->data = data;
+		// this->next = next;
+	}
+	// desctructor
+	~QueueNode<U>() { this->next = NULL; }
+};
+
 public:
 	QueueNode<T>* front;
 	QueueNode<T>* rear;
