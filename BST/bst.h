@@ -41,8 +41,26 @@ public:
 	BST<T>(Node<T>* root = NULL) : root(root) {}
 	~BST<T>() { this->root = NULL; }
 	Node<T>* getRoot() const { return this->root; }
-
+	
+	// deletes the entire tree. Frees up the dynamic memory being used
+	void clear() {
+		if(this->root != NULL) 
+			this->clear(this->root);
+		else
+			cout<<"BST is empty\n";
+	}
 private:
+	// deletes the entire tree using  
+	// recursion and postorder traversal
+	void clear(Node<T>*& curr) {
+		if(curr == NULL) return;
+		else {
+			this->clear(curr->left);
+			this->clear(curr->right);
+			delete curr;
+			curr = NULL;
+		}
+	}
 	void insert(Node<T>*& curr, T insertItem) {
 		if (curr == NULL) {
 			Node<T>* newNode = new Node<T>(insertItem);
