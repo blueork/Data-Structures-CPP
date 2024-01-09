@@ -1,6 +1,6 @@
 #include <iostream>
 #include "..\Queue\queue.h"
-using namespace std;
+//using namespace std;
 
 // template< typename T >
 // class Node {
@@ -46,7 +46,7 @@ public:
 		if(this->root != NULL) 
 			this->clear(this->root);
 		else
-			cout<<"BST is empty\n";
+			std::cout<<"BST is empty\n";
 	}
 private:
 	// deletes the entire tree using  
@@ -118,17 +118,17 @@ private:
 			return;
 		else {
 			inorderTraversalRecursive(curr->left);
-			cout << curr->key << " ";
+			std::cout << curr->key << " ";
 			inorderTraversalRecursive(curr->right);
 		}
 	}
 public:
 	void inorderTraversal() {
 		if (this->root == NULL)
-			cout << "BST is Empty" << endl;
+			std::cout << "BST is Empty\n";
 		else {
 			inorderTraversalRecursive(this->root);
-			cout << endl;
+			std::cout << std::endl;
 		}
 	}
 
@@ -137,7 +137,7 @@ private:
 		if (curr == NULL)
 			return;
 		else {
-			cout << curr->key << " ";
+			std::cout << curr->key << " ";
 			preorderTraversalRecursive(curr->left);
 			preorderTraversalRecursive(curr->right);
 		}
@@ -145,10 +145,10 @@ private:
 public:
 	void preorderTraversal() {
 		if (this->root == NULL)
-			cout << "BST is Empty" << endl;
+			std::cout << "BST is Empty\n";
 		else {
 			preorderTraversalRecursive(this->root);
-			cout << endl;
+			std::cout << std::endl;
 		}
 	}
 
@@ -159,16 +159,16 @@ private:
 		else {
 			postorderTraversalRecursive(curr->left);
 			postorderTraversalRecursive(curr->right);
-			cout << curr->key << " ";
+			std::cout << curr->key << " ";
 		}
 	}
 public:
 	void postorderTraversal() {
 		if (this->root == NULL)
-			cout << "BST is Empty" << endl;
+			std::cout << "BST is Empty\n";
 		else {
 			postorderTraversalRecursive(this->root);
-			cout << endl;
+			std::cout << std::endl;
 		}
 	}
 
@@ -243,18 +243,18 @@ private:
 		Node<T>* temp = NULL;
 		while (!traversalQueue.isEmpty() ) {
 			temp = traversalQueue.dequeue();
-			cout << temp->key << " ";
+			std::cout << temp->key << " ";
 			if (temp->left)
 				traversalQueue.enqueue(temp->left);
 			if (temp->right)
 				traversalQueue.enqueue(temp->right);
 		}
-		cout << endl;
+		std::cout << std::endl;
 	}
 public:
 	void levelWise() {
 		if (this->root == NULL)
-			cout << "BST is Empty" << endl;
+			std::cout << "BST is Empty\n";
 		else
 			levelOrder(this->root);
 	}
