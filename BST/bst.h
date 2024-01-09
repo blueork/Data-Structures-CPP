@@ -2,24 +2,40 @@
 #include "..\Queue\queue.h"
 using namespace std;
 
-template< typename T >
-class Node {
-public:
-	T key;
-	Node<T>* left, * right;
-	Node<T>(T value = 0, Node<T>* left = NULL, Node<T>* right = NULL) : key(value), 
-	left(left), right(right) {}
-	~Node<T>() {
-		this->left = NULL;
-		this->right = NULL;
-	}
-	Node operator=(const Node& copy) {
-	    this->key = copy.key;
-	}
-};
+// template< typename T >
+// class Node {
+// public:
+// 	T key;
+// 	Node<T>* left, * right;
+// 	Node<T>(T value = 0, Node<T>* left = NULL, Node<T>* right = NULL) : key(value), 
+// 	left(left), right(right) {}
+// 	~Node<T>() {
+// 		this->left = NULL;
+// 		this->right = NULL;
+// 	}
+// 	Node operator=(const Node& copy) {
+// 	    this->key = copy.key;
+// 	}
+// };
 
 template< typename T >
 class BST {
+private:
+	template< typename U >
+	class Node {
+	public:
+		U key;
+		Node<U>* left, * right;
+		Node<U>(U value = 0, Node<U>* left = NULL, Node<U>* right = NULL) : key(value), 
+		left(left), right(right) {}
+		~Node<U>() {
+			this->left = NULL;
+			this->right = NULL;
+		}
+		Node operator=(const Node& copy) {
+	    	this->key = copy.key;
+		}
+	};
 public:
 	Node<T>* root;
 	BST<T>(Node<T>* root = NULL) : root(root) {}
