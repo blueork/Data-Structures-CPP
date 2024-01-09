@@ -1,22 +1,5 @@
 #include <iostream>
 #include "..\Queue\queue.h"
-//using namespace std;
-
-// template< typename T >
-// class Node {
-// public:
-// 	T key;
-// 	Node<T>* left, * right;
-// 	Node<T>(T value = 0, Node<T>* left = NULL, Node<T>* right = NULL) : key(value), 
-// 	left(left), right(right) {}
-// 	~Node<T>() {
-// 		this->left = NULL;
-// 		this->right = NULL;
-// 	}
-// 	Node operator=(const Node& copy) {
-// 	    this->key = copy.key;
-// 	}
-// };
 
 template< typename T >
 class BST {
@@ -173,30 +156,6 @@ public:
 	}
 
 private:
-// 	void deleteNode(Node<T>*& curr) {
-// 		if (curr->left == NULL) {
-// 			Node<T>* temp = curr;
-// 			curr = curr->right;
-// 			delete temp;
-// 			temp = NULL;
-// 		}
-// 		else if (curr->right == NULL) {
-// 			Node<T>* temp = curr;
-// 			curr = curr->left;
-// 			delete temp;
-// 			temp = NULL;
-// 		}
-// 		else {
-// 			Node<T>* temp1 = curr->right;
-// 			Node<T>* temp2 = curr->right;
-// 			while (temp1->left) {
-// 				temp1 = temp1->left;
-// 			}
-// 			temp1->left = curr->left;
-// 			delete curr;
-// 			curr = temp2;
-// 		}
-// 	}
   void deleteNode(Node<T>*& curr) {
 		if (curr->left == NULL) {
 		Node<T>* temp = curr;
