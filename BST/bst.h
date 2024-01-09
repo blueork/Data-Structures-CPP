@@ -7,11 +7,8 @@ class Node {
 public:
 	T key;
 	Node<T>* left, * right;
-	Node<T>(T value = 0, Node<T>* left = NULL, Node<T>* right = NULL) {
-		this->key = value;
-		this->left = left;
-		this->right = right;
-	}
+	Node<T>(T value = 0, Node<T>* left = NULL, Node<T>* right = NULL) : key(value), 
+	left(left), right(right) {}
 	~Node<T>() {
 		this->left = NULL;
 		this->right = NULL;
@@ -25,9 +22,7 @@ template< typename T >
 class BST {
 public:
 	Node<T>* root;
-	BST<T>(Node<T>* root = NULL) {
-		this->root = root;
-	}
+	BST<T>(Node<T>* root = NULL) : root(root) {}
 	~BST<T>() { this->root = NULL; }
 	Node<T>* getRoot() const { return this->root; }
 
