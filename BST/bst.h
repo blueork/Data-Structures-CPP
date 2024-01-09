@@ -39,9 +39,8 @@ private:
 public:
 	Node<T>* root;
 	BST<T>(Node<T>* root = NULL) : root(root) {}
-	~BST<T>() { this->root = NULL; }
+	~BST<T>() { if(this->root != NULL) this->clear(this->root); }
 	Node<T>* getRoot() const { return this->root; }
-	
 	// deletes the entire tree. Frees up the dynamic memory being used
 	void clear() {
 		if(this->root != NULL) 
