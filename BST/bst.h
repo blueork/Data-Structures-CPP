@@ -49,10 +49,8 @@ private:
 			curr = newNode;
 		}
 		else {
-			if (insertItem < curr->key)
-				insert(curr->left, insertItem);
-			else
-				insert(curr->right, insertItem);
+			if (insertItem < curr->key) insert(curr->left, insertItem);
+			else insert(curr->right, insertItem);
 		}
 	}
 public:
@@ -62,43 +60,32 @@ public:
 			this->root = newNode;
 		}
 		else {
-			if (insertItem < this->root->key)
-				insert(this->root->left, insertItem);
-			else
-				insert(this->root->right, insertItem);
+			if (insertItem < this->root->key) insert(this->root->left, insertItem);
+			else insert(this->root->right, insertItem);
 		}
 	}
 
 private:
 	bool search(Node<T>* curr, T searchItem) {
-		if (curr == NULL)
-			return false;
-		else if (curr->key == searchItem)
-			return true;
-		else if (searchItem < curr->key)
-			return search(curr->left, searchItem);
-		else
-			return search(curr->right, searchItem);
+		if (curr == NULL) return false;
+		else if (curr->key == searchItem) return true;
+		else if (searchItem < curr->key) return search(curr->left, searchItem);
+		else return search(curr->right, searchItem);
 	}
 public:
 	bool search(T searchItem) {
-		if (this->root == NULL)
-			return false;
-		if (this->root->key == searchItem)
-			return true;
+		if (this->root == NULL) return false;
+		if (this->root->key == searchItem) return true;
 		else {
-			if (searchItem < this->root->key)
-				return search(this->root->left, searchItem);
-			else
-				return search(this->root->right, searchItem);
+			if (searchItem < this->root->key) return search(this->root->left, searchItem);
+			else return search(this->root->right, searchItem);
 		}
 		return false;
 	}
 
 private:
 	void inorderTraversalRecursive(Node<T>* curr) {
-		if (curr == NULL)
-			return;
+		if (curr == NULL) return;
 		else {
 			inorderTraversalRecursive(curr->left);
 			std::cout << curr->key << " ";
@@ -107,8 +94,7 @@ private:
 	}
 public:
 	void inorderTraversal() {
-		if (this->root == NULL)
-			std::cout << "BST is Empty\n";
+		if (this->root == NULL) std::cout << "BST is Empty\n";
 		else {
 			inorderTraversalRecursive(this->root);
 			std::cout << std::endl;
@@ -117,8 +103,7 @@ public:
 
 private:
 	void preorderTraversalRecursive(Node<T>* curr) {
-		if (curr == NULL)
-			return;
+		if (curr == NULL) return;
 		else {
 			std::cout << curr->key << " ";
 			preorderTraversalRecursive(curr->left);
@@ -127,8 +112,7 @@ private:
 	}
 public:
 	void preorderTraversal() {
-		if (this->root == NULL)
-			std::cout << "BST is Empty\n";
+		if (this->root == NULL) std::cout << "BST is Empty\n";
 		else {
 			preorderTraversalRecursive(this->root);
 			std::cout << std::endl;
@@ -137,8 +121,7 @@ public:
 
 private:
 	void postorderTraversalRecursive(Node<T>* curr) {
-		if (curr == NULL)
-			return;
+		if (curr == NULL) return;
 		else {
 			postorderTraversalRecursive(curr->left);
 			postorderTraversalRecursive(curr->right);
@@ -147,8 +130,7 @@ private:
 	}
 public:
 	void postorderTraversal() {
-		if (this->root == NULL)
-			std::cout << "BST is Empty\n";
+		if (this->root == NULL) std::cout << "BST is Empty\n";
 		else {
 			postorderTraversalRecursive(this->root);
 			std::cout << std::endl;
@@ -178,21 +160,15 @@ private:
 		}
   }
 	void remove(Node<T>*& curr, T key) {
-		if (curr == NULL)
-			return;
-		else if (curr->key == key)
-			deleteNode(curr);
-		else if (key < curr->key)
-			remove(curr->left, key);
-		else
-			remove(curr->right, key);
+		if (curr == NULL) return;
+		else if (curr->key == key) deleteNode(curr);
+		else if (key < curr->key) remove(curr->left, key);
+		else remove(curr->right, key);
 	}
 public:
 	void remove(T key) {
-		if (this->root == NULL)
-			return;
-		else
-			remove(this->root, key);
+		if (this->root == NULL) return;
+		else remove(this->root, key);
 	}
 
 private:
@@ -203,35 +179,26 @@ private:
 		while (!traversalQueue.isEmpty() ) {
 			temp = traversalQueue.dequeue();
 			std::cout << temp->key << " ";
-			if (temp->left)
-				traversalQueue.enqueue(temp->left);
-			if (temp->right)
-				traversalQueue.enqueue(temp->right);
+			if (temp->left) traversalQueue.enqueue(temp->left);
+			if (temp->right) traversalQueue.enqueue(temp->right);
 		}
 		std::cout << std::endl;
 	}
 public:
 	void levelWise() {
-		if (this->root == NULL)
-			std::cout << "BST is Empty\n";
-		else
-			levelOrder(this->root);
+		if (this->root == NULL) std::cout << "BST is Empty\n";
+		else levelOrder(this->root);
 	}
 
 private:
   int countLeafNodes(Node<T>* current) {
-    if(current == NULL)
-      return 0;
-    else if(current->left == NULL && current->right == NULL)
-      return 1;
-    else 
-      return this->countLeafNodes(current->left) + this->countLeafNodes(current->right);
+    if(current == NULL) return 0;
+    else if(current->left == NULL && current->right == NULL) return 1;
+    else return this->countLeafNodes(current->left) + this->countLeafNodes(current->right);
   }
 public:
   int countLeafNodes() {
-    if(this->root)
-      return this->countLeafNodes(this->root);
-    else 
-    	return -1;
+    if(this->root) return this->countLeafNodes(this->root);
+    else return -1;
   }
 };
